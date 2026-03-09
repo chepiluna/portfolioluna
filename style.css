@@ -258,7 +258,7 @@ body::after {
 
 .hero-title {
   color: #ffffff;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
@@ -1136,7 +1136,50 @@ body::after {
 
   .social-links {
     justify-content: center;
+  } 
+}
+
+/* ===== MOBILE HERO FIX ===== */
+@media (max-width: 768px) {
+
+  .hero-text {
+    text-align: center;
+    margin: 0 auto;
   }
 
-  
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-social {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    margin-top: 30px;
+  }
+
+  /* orbit container lebih kecil supaya tidak berantakan */
+  .avatar-container {
+    width: 260px;
+    height: 260px;
+  }
+
+  .sun-core {
+    width: 120px;
+    height: 120px;
+  }
+
+  .orbit-icon {
+    width: 40px;
+    height: 40px;
+  }
+
 }
+
+/* menghilangkan jitter saat scroll di mobile */
+.avatar-container {
+  transform: translateZ(0);
+}
+
+  
