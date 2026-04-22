@@ -823,43 +823,118 @@ body::after {
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
   margin-top: 60px;
 }
 
+.project-section {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(167,118,147,0.3);
+  border-radius: 12px;
+  padding: 30px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-section h2 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.project-section:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 
+    0 20px 40px rgba(167,118,147,0.3),
+    0 0 20px rgba(167,118,147,0.2);
+  border-color: var(--accent);
+}
+
+.project-impact {
+  margin-top: 10px;
+  font-style: italic;
+  color: #ccc;
+}
+
+/* ===== SLIDER STYLE ===== */
+.project-slider {
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.slides {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slides img {
+  min-width: 80%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  transition: all 0.3s ease;
+}
+
+.slides img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== CERTIFICATION GRID ===== */
 .certifications-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
   margin-top: 60px;
 }
 
+/* ===== CERT CARD ===== */
 .cert-card {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(167,118,147,0.3);
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  transition: all 0.3s ease;
 }
 
 .cert-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(167,118,147,0.3);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(167,118,147,0.3),
+    0 0 20px rgba(167,118,147,0.2);
   border-color: var(--accent);
 }
 
-.cert-image iframe{
-  width:100%;
-  height:200px;
-  border:none;
-  border-radius:10px 10px 0 0;
+/* ===== IMAGE ===== */
+.cert-image iframe,
+.cert-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: #fff;
 }
 
+/* ===== CONTENT ===== */
 .cert-content {
   padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   text-align: left;
 }
 
@@ -873,11 +948,11 @@ body::after {
   margin-bottom: 20px;
 }
 
+/* ===== SKILLS ===== */
 .cert-skills {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: left;
   margin-bottom: 20px;
 }
 
@@ -890,9 +965,9 @@ body::after {
   border: 1px solid rgba(167,118,147,0.45);
 }
 
+/* ===== BUTTON ===== */
 .cert-links {
-  display: flex;
-  justify-content: left;
+  margin-top: auto;
 }
 
 .cert-link {
@@ -903,86 +978,11 @@ body::after {
   border: 1px solid var(--accent);
   border-radius: 6px;
   transition: all 0.3s ease;
+  display: inline-block;
 }
 
 .cert-link:hover {
   background: var(--accent);
-  box-shadow: 0 0 10px rgba(167,118,147,0.6);
-}
-
-.project-card {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(167,118,147,0.3);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(167,118,147,0.3);
-  border-color: var(--accent);
-}
-
-.project-image img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-content {
-  padding: 25px;
-}
-
-.project-content h3 {
-  color: #ffffff;
-  margin-bottom: 15px;
-  font-size: 1.3rem;
-  text-shadow: 0 0 8px rgba(0,0,0,0.6);
-}
-
-.project-content p {
-  color: #F2F3F4;
-  margin-bottom: 20px;
-  line-height: 1.6;
-  text-shadow: 0 0 6px rgba(0,0,0,0.5);
-}
-
-.project-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.project-tech span {
-  background: rgba(167,118,147,0.18);
-  color: #ffffff;
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  border: 1px solid rgba(167,118,147,0.45);
-}
-
-.project-links {
-  display: flex;
-  gap: 15px;
-}
-
-.project-link {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 8px 16px;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-}
-
-.project-link:hover {
-  background: var(--accent);
-  color: white;
   box-shadow: 0 0 10px rgba(167,118,147,0.6);
 }
 
